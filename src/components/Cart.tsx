@@ -1,11 +1,7 @@
-
-
 function Cart() {
-  return (
-    <div>
-      This is cart page
-    </div>
-  )
+  const [];
+
+  return <div>This is cart page</div>;
 }
 
-export default Cart
+export default Cart;
