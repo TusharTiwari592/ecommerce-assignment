@@ -7,9 +7,16 @@ import Product from "./components/Product";
 const App = () => {
   return (
     <>
-      <nav className="">
-        <Link to="/">Home</Link> | <Link to="/products">catelog</Link> |{" "}
-        <Link to="/cart">Cart</Link>
+      <nav className="p-4 bg-blue-400">
+        <Link className="border-r-2 p-4" to="/">
+          Home
+        </Link>
+        <Link className="border-r-2 p-4" to="/products">
+          catelog
+        </Link>{" "}
+        <Link className="border-r-2 p-4" to="/cart">
+          Cart
+        </Link>
       </nav>
       <Routes>
         <Route path="/" element={<Home />} />
