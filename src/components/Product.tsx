@@ -19,6 +19,7 @@ function Product() {
     price: 0,
     description: "",
   });
+  const [localCartQuntity, setLocalCartQuntity] = useState(0);
   const { id } = useParams();
 
   const fetchProduct = async () => {
@@ -39,15 +40,12 @@ function Product() {
     fetchProduct();
   }, []);
 
-  const handleAddToCart = (product: Product) => {
-    setStorage({
-      id: product.id,
-      image: product.image,
-      title: product.title,
-      price: product.price,
-    });
+  const handleAddToCart = async (product: Product) => {
+    setStorage(product);
+    const cart = setStorage(product.id);
+    const addedInLocal = cart.products.find((prod) => prod.id === product.id);
+    setLocalCartQuntity(addedInLocal.quntity);
   };
-  console.log(product);
 
   return (
     <div>
@@ -74,6 +72,10 @@ function Product() {
                 }}
               >
                 Add To Cart
+                <span className="bg-gray-700 p-2 text-white">
+                  {" "}
+                  Product quntity {localCartQuntity}
+                </span>
               </div>
             </div>
           </div>
